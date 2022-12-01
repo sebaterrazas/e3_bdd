@@ -23,7 +23,7 @@
         $result = $db2 -> prepare($query);
         $result -> execute();
         $existe = $result -> fetchAll();
-        if (len($existe)) {
+        if (count($existe)) {
             continue;
         }
         // id se asigna automáticamente
@@ -40,7 +40,7 @@
         $result = $db2 -> prepare($query);
         $result -> execute();
         $existe = $result -> fetchAll();
-        if (len($existe)) {
+        if (count($existe)) {
             continue;
         }
         // id se asigna automáticamente
