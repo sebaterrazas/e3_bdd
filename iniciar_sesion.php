@@ -3,12 +3,12 @@
 
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $tipo = $_POST['tipo'];
 
     $query = "SELECT * FROM usuarios WHERE nombre_usuario='$username' AND contraseña='$password';";
     $result = $db2 -> prepare($query);
     $result -> execute();
     $usuarios = $result -> fetchAll();
+    $tipo = $usuarios[0][3];
 
     if (count($usuarios)) {
         session_start();
