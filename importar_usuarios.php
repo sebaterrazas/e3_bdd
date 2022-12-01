@@ -38,8 +38,8 @@
     $query = "INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ('usuario', 'contraseña', 'artista');";
     $result = $db2 -> prepare($query);
     $result -> execute();
-    $result -> fetchAll();
-    /* header('Location: ' . 'usuarios.php', true, 303);
-    die(); */
+    // $result -> fetchAll();
+    header('Location: ' . 'usuarios.php', true, 303);
+    die();
 ?>
 <?php include('templates/footer.html');   ?>
