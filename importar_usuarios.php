@@ -16,7 +16,7 @@
     }
     
     foreach ($productoras as $p) {
-        echo "<h5>$p[1]<h5>";
+        echo "<h5>prod<h5>";
         $password = randomPassword();
         $username = strtolower(str_replace(" ", "_", $p[1]));
 
@@ -26,18 +26,23 @@
         $result -> fetchAll(); */
 
         $query = "IF $username NOT IN (SELECT nombre_usuario FROM usuarios) THEN INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ($username, $password, 'artista');";
-        $result = $db2 -> prepare($query);
+        $result = $db1 -> prepare($query);
         $result -> execute();
     }
 
     foreach ($artistas as $a) {
+        echo "<h5>art<h5>";
         $password = randomPassword();
         $username = strtolower(str_replace(" ", "_", $a[1]));
 
-        $query = "SELECT importar_artista('$username'::varchar, '$password'::varchar);";
+        /* $query = "SELECT importar_artista('$username'::varchar, '$password'::varchar);";
         $result = $db2 -> prepare($query);
         $result -> execute();
-        $result -> fetchAll();
+        $result -> fetchAll(); */
+
+        $query = "IF $username NOT IN (SELECT nombre_usuario FROM usuarios) THEN INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ($username, $password, 'artista');";
+        $result = $db2 -> prepare($query);
+        $result -> execute();
     }
 
     $query = "INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ('usuario', 'contraseña', 'artista');";
