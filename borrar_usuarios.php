@@ -1,7 +1,7 @@
 <?php
     require ("config/conexion.php");
 
-    $query = "TRUNCATE TABLE usuarios;";
+    $query = "DROP TABLE usuarios; CREATE TABLE usuarios (id_usuario INT GENERATED ALWAYS AS IDENTITY, nombre_usuario VARCHAR (90) NOT NULL, contraseña VARCHAR (30) NOT NULL, tipo VARCHAR (20) NOT NULL);";
     $result = $db2 -> prepare($query);
     $result -> execute();
     header('Location: ' . 'usuarios.php', true, 303);
