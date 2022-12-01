@@ -24,7 +24,7 @@
         $result -> execute();
         $result -> fetchAll(); */
 
-        $query = "SELECT * FROM usuarios; WHERE nombre_usuario = '$username';";
+        $query = "SELECT * FROM usuarios WHERE nombre_usuario = '$username';";
         $result = $db2 -> prepare($query);
         $result -> execute();
         $usuarios = $result -> fetchAll();
@@ -54,9 +54,6 @@
         $result -> execute();
         $usuarios = $result -> fetchAll();
 
-        echo count($usuarios);
-        echo "   ----------      ";
-
         if (count($usuarios)) {
             continue;
         }
@@ -65,7 +62,7 @@
         $result = $db2 -> prepare($query);
         $result -> execute();
     }
-    /* header('Location: ' . 'usuarios.php', true, 303);
-    die(); */
+    header('Location: ' . 'usuarios.php', true, 303);
+    die();
 ?>
 <?php include('templates/footer.html');   ?>
