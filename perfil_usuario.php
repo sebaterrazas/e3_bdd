@@ -44,7 +44,7 @@ if ($tipo == 'productora') {
     echo "<h4>Eventos rechazados:</h4>";
     echo "</div>";
 
-    $query = "SELECT * FROM eventos WHERE nombre_productora=$username;";
+    $query = "SELECT * FROM eventos WHERE upper(nombre_productora) LIKE upper('%$username%');";
     $result = $db2 -> prepare($query);
     $result -> execute();
     $eventos = $result -> fetchAll();
@@ -62,7 +62,7 @@ if ($tipo == 'productora') {
     
 } else {
     echo "<p>Estas en la pagina de artista, estos son tus eventos programados:</p>";
-    $query = "SELECT * FROM eventos WHERE nombre_artista=$username;";
+    $query = "SELECT * FROM eventos WHERE upper(nombre_artista) LIKE upper('%$username%');";
     $result = $db2 -> prepare($query);
     $result -> execute();
     $eventos = $result -> fetchAll();
