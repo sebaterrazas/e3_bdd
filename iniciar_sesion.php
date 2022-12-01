@@ -1,12 +1,20 @@
 <?php
     require ("config/conexion.php");
 
-    $query = "SELECT * FROM usuarios;";
-    $result = $db1 -> prepare($query);
-    $result -> execute();
-    $productoras = $result -> fetchAll();
-    
+    $username = $_POST['username']
+    $password = $_POST['password']
 
-    header('Location: ' . 'index.php', true, 303);
+    $query = "SELECT * FROM usuarios WHERE nombre_usuario='$username' AND contraseña='$password';";
+    $result = $db2 -> prepare($query);
+    $result -> execute();
+    $usuarios = $result -> fetchAll();
+
+    if (count($usuarios)) {
+        session_start();
+        $_SESSION['username'] = $username;
+        header("Location: perfil_usuario.php");
+    } else {
+        header("Location: index.php");
+    }
     die();
 ?>
