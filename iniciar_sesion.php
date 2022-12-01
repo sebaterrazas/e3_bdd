@@ -12,7 +12,7 @@
     if (count($usuarios)) {
         session_start();
         $_SESSION['username'] = $username;
-        header("Location: perfil_usuario.php");
+        header("Location: perfil_usuario.php?". SID);
     } else {
         header("Location: index.php");
     }
