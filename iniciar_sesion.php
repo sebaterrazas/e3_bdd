@@ -1,8 +1,8 @@
 <?php
     require ("config/conexion.php");
 
-    $username = $_POST['username']
-    $password = $_POST['password']
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
     $query = "SELECT * FROM usuarios WHERE nombre_usuario='$username' AND contraseña='$password';";
     $result = $db2 -> prepare($query);
