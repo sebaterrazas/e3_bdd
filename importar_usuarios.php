@@ -43,22 +43,3 @@
     die(); */
 ?>
 <?php include('templates/footer.html');   ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

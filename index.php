@@ -12,6 +12,13 @@
     </div>
 
     <div class = "flex-item">
+        <h1>Borrar Usuarios</h1>
+        <form action="borrar_usuarios.php" method="post">
+            <input type="submit" value="Borrar Usuarios">
+        </form>
+    </div>
+
+    <div class = "flex-item">
         <h1>Iniciar Sesion</h1>
         <form action="iniciar_sesion.php" method="post">
             <input type="text" name="username" placeholder="Username">
