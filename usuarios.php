@@ -10,13 +10,14 @@
 <h2>Usuarios(<?php echo count($usuarios);?>)</h2>
 <table>
 <tr>
+    <th>ID</th>
     <th>Nombre</th>
     <th>Contraseña</th>
     <th>Tipo</th>
 </tr>
 <?php
 foreach ($usuarios as $u) {
-echo "<tr> <td>$u[0]</td> <td>$u[1]</td> <td>$u[2]</td> </tr>";
+echo "<tr> <td>$u[0]</td> <td>$u[1]</td> <td>$u[2]</td> <td>$u[3]</td> </tr>";
 }
 ?>
 </table>

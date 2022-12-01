@@ -41,7 +41,7 @@
         echo $username;
         echo $password;
         echo "--------";
-        $query = "INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ($username, $password, 'artista');";
+        $query = "INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ('$username'::varchar, '$password'::varchar, 'artista'::varchar);";
         $result = $db2 -> prepare($query);
         $result -> execute();
     }
