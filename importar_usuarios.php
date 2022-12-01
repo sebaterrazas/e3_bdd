@@ -35,7 +35,7 @@
         $result -> fetchAll();
     }
 
-    $query = "INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ('usuario', 'contraseña', 'artista');";
+    $query = "INSERT INTO usuarios VALUES ('usuario', 'contraseña', 'artista');";
     $result = $db2 -> prepare($query);
     $result -> execute();
     $result -> fetchAll();
