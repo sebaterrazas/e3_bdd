@@ -23,9 +23,12 @@
         $result = $db2 -> prepare($query);
         $result -> execute();
         $existe = $result -> fetchAll();
+
         if (count($existe)) {
+            echo "Ya existe un usuario con el nombre $username<br>";
             continue;
         }
+        echo "Creando usuario $username con contraseña $password<br>";
         // id se asigna automáticamente
         $query = "INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ($username, $password, 'productora');";
         $result = $db2 -> prepare($query);
@@ -49,8 +52,8 @@
         $result -> execute();
     }
 
-    header('Location: ' . 'index.php', true, 303);
-    die();
+    /* header('Location: ' . 'index.php', true, 303);
+    die(); */
 ?>
 
 
