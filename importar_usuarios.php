@@ -26,6 +26,8 @@
         $result -> execute();
         $productora = $result -> fetchAll();
 
+        echo $productora[0][0];
+
         foreach ($productora as $prod) {
             $id_impar = $prod[0];
         }
