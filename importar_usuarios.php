@@ -19,14 +19,14 @@
         $password = randomPassword();
         $username = strtolower(str_replace(" ", "_", $p[1]));
 
-        $query = "SELECT importar_productora('$username'::varchar, '$password'::varchar);";
+        /* $query = "SELECT importar_productora('$username'::varchar, '$password'::varchar);";
         $result = $db2 -> prepare($query);
         $result -> execute();
-        $result -> fetchAll();
+        $result -> fetchAll(); */
 
-        /* $query = "IF $username NOT IN (SELECT nombre_usuario FROM usuarios) THEN INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES (nombre, contraseña_usuario, 'artista');";
+        $query = "IF $username NOT IN (SELECT nombre_usuario FROM usuarios) THEN INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ($username, $password, 'artista');";
         $result = $db2 -> prepare($query);
-        $result -> execute(); */
+        $result -> execute();
     }
 
     foreach ($artistas as $a) {
