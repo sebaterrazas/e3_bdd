@@ -24,10 +24,14 @@
         $result -> execute();
         $result -> fetchAll(); */
 
-        $query = "SELECT * FROM artistas;";
+        $query = "SELECT * FROM usuarios; WHERE nombre_usuario = '$username';";
         $result = $db2 -> prepare($query);
         $result -> execute();
-        $artistas = $result -> fetchAll();
+        $usuarios = $result -> fetchAll();
+
+        if (count($usuarios)) {
+            continue;
+        }
 
         $query = "INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ('$username'::varchar, '$password'::varchar, 'productora');";
         $result = $db2 -> prepare($query);
@@ -38,16 +42,25 @@
         $password = randomPassword();
         $username = strtolower(str_replace(" ", "_", $a[1]));
 
-        $query = "SELECT importar_artista('$username'::varchar, '$password'::varchar);";
+        /* $query = "SELECT importar_artista('$username'::varchar, '$password'::varchar);";
         $result = $db2 -> prepare($query);
         $result -> execute();
-        $result -> fetchAll();
+        $result -> fetchAll(); */
 
         /* $query = "IF $username NOT IN (SELECT nombre_usuario FROM usuarios) THEN INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ('$username'::varchar, '$password'::varchar, 'artista');"; */
 
-        /* $query = "INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ('$username'::varchar, '$password'::varchar, 'artista');";
+        $query = "SELECT * FROM usuarios; WHERE nombre_usuario = '$username';";
         $result = $db2 -> prepare($query);
-        $result -> execute(); */
+        $result -> execute();
+        $usuarios = $result -> fetchAll();
+
+        if (count($usuarios)) {
+            continue;
+        }
+
+        $query = "INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ('$username'::varchar, '$password'::varchar, 'artista');";
+        $result = $db2 -> prepare($query);
+        $result -> execute();
     }
     header('Location: ' . 'usuarios.php', true, 303);
     die();
