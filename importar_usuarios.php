@@ -49,7 +49,7 @@
 
         /* $query = "IF $username NOT IN (SELECT nombre_usuario FROM usuarios) THEN INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ('$username'::varchar, '$password'::varchar, 'artista');"; */
 
-        $query = "SELECT * FROM usuarios; WHERE nombre_usuario = '$username';";
+        $query = "SELECT * FROM usuarios; WHERE nombre_usuario = $username;";
         $result = $db2 -> prepare($query);
         $result -> execute();
         $usuarios = $result -> fetchAll();
