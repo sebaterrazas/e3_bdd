@@ -52,8 +52,6 @@ if ($tipo == 'productora') {
     //Hacer esto mismo de abajo pero en html
     echo "<div align='center' class = 'flex-container'>";
     echo "<h4>Eventos programados:</h4>";
-    echo "</div>";
-    echo "<div align='center' class = 'flex-container'>";
     echo "<table>";
     echo "<tr><th>Nombre</th><th>Fecha</th><th>Recinto</th><th>Artistas</th><th>Tour</th><th>Hospedaje</th><th>Traslado</th><th>Entradas</th></tr>";
     foreach ($eventos as $e) {
