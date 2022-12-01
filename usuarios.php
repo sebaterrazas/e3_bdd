@@ -2,7 +2,7 @@
     require ("config/conexion.php");
 
     $query = "SELECT * FROM usuarios;";
-    $result = $db1 -> prepare($query);
+    $result = $db2 -> prepare($query);
     $result -> execute();
     $usuarios = $result -> fetchAll();
 ?>
