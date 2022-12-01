@@ -2,8 +2,7 @@
 session_start();
 $username = $_SESSION['username'];
 $tipo = $_SESSION['tipo'];
-echo "<h1>$username </h1>";
-echo "<h2>$tipo </h2>";
+echo "<h1>$tipo </h1>";
 
 ?>
 
