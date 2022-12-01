@@ -25,7 +25,7 @@
         $result -> fetchAll(); */
 
         $query = "INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ('$username'::varchar, '$password'::varchar, 'productora');";
-        $result = $db1 -> prepare($query);
+        $result = $db2 -> prepare($query);
         $result -> execute();
     }
 
