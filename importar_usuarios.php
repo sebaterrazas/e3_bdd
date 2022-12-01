@@ -54,6 +54,9 @@
         $result -> execute();
         $usuarios = $result -> fetchAll();
 
+        echo count($usuarios);
+        echo "   ----------      ";
+
         if (count($usuarios)) {
             continue;
         }
@@ -62,7 +65,7 @@
         $result = $db2 -> prepare($query);
         $result -> execute();
     }
-    header('Location: ' . 'usuarios.php', true, 303);
-    die();
+    /* header('Location: ' . 'usuarios.php', true, 303);
+    die(); */
 ?>
 <?php include('templates/footer.html');   ?>
