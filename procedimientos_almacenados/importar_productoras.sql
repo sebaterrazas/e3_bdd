@@ -2,7 +2,7 @@ CREATE OR REPLACE FUNCTION importar_productora(nombre varchar, contraseña_usuar
 RETURNS BOOLEAN AS
 $$
 BEGIN
-    IF nombre NOT IN (SELECT nombre_usuario from usuarios) THEN
+    IF nombre NOT IN (SELECT nombre_usuario FROM usuarios) THEN
         INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES (nombre, contraseña_usuario, 'productora');
         RETURN TRUE;
     ELSE 

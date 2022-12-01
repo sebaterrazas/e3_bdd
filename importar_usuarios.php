@@ -23,6 +23,10 @@
         $result = $db2 -> prepare($query);
         $result -> execute();
         $result -> fetchAll();
+
+        /* $query = "IF $username NOT IN (SELECT nombre_usuario FROM usuarios) THEN INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES (nombre, contraseña_usuario, 'artista');";
+        $result = $db2 -> prepare($query);
+        $result -> execute(); */
     }
 
     foreach ($artistas as $a) {
@@ -38,7 +42,6 @@
     $query = "INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ('usuario', 'contraseña', 'artista');";
     $result = $db2 -> prepare($query);
     $result -> execute();
-    // $result -> fetchAll();
     header('Location: ' . 'usuarios.php', true, 303);
     die();
 ?>
