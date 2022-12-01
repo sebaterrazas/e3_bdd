@@ -16,7 +16,7 @@
     }
     
     foreach ($productoras as $p) {
-        echo "<h5>prod<h5>";
+        echo "<h5>prod: $p[1]<h5>";
         $password = randomPassword();
         $username = strtolower(str_replace(" ", "_", $p[1]));
 
@@ -31,7 +31,7 @@
     }
 
     foreach ($artistas as $a) {
-        echo "<h5>art<h5>";
+        echo "<h5>art: $a[1]<h5>";
         $password = randomPassword();
         $username = strtolower(str_replace(" ", "_", $a[1]));
 
