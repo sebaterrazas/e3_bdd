@@ -1,4 +1,6 @@
 <?php include('templates/header.html');   
+require ("config/conexion.php");
+
 session_start();
 $username = $_SESSION['username'];
 $tipo = $_SESSION['tipo'];
