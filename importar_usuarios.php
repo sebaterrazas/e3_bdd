@@ -19,10 +19,10 @@
         $password = randomPassword();
         $username = strtolower(str_replace(" ", "_", $p[1]));
 
-        $query = "SELECT importar_productora('$username'::varchar, '$password'::varchar);";
+        /* $query = "SELECT importar_productora('$username'::varchar, '$password'::varchar);";
         $result = $db2 -> prepare($query);
         $result -> execute();
-        $result -> fetchAll();
+        $result -> fetchAll(); */
 
         $query = "INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ('$username'::varchar, '$password'::varchar, 'productora');";
         $result = $db1 -> prepare($query);
