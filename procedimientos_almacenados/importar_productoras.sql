@@ -3,7 +3,7 @@ RETURNS BOOLEAN AS
 $$
 BEGIN
     IF nombre NOT IN (SELECT nombre_usuario from usuarios) THEN
-        INSERT INTO usuarios VALUES (nombre, contraseña, 'productora');
+        INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES (nombre, contraseña, 'productora');
         RETURN TRUE;
     ELSE 
         RETURN FALSE;
