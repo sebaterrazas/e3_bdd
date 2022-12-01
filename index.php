@@ -3,7 +3,7 @@
 <?php include 'mystyles.css'; ?>
 </style>
 
-<div class = "flex-container">
+<div align="center" class = "flex-container">
     <div class = "flex-item">
         <h1>Importar Usuarios</h1>
         <form action="importar_usuarios.php" method="post">
