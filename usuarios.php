@@ -1,3 +1,9 @@
+<?php include('templates/header.html');?>
+
+<style>
+<?php include 'mystyles.css'; ?>
+</style>
+
 <?php
     require ("config/conexion.php");
 
