@@ -34,10 +34,11 @@
         $result -> execute();
         $result -> fetchAll();
     }
-
-    header('Location: ' . 'index.php', true, 303);
-    die();
+    INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ('usuario', 'contraseña', 'artista');
+    /* header('Location: ' . 'index.php', true, 303);
+    die(); */
 ?>
+<?php include('templates/footer.html');   ?>
 
 
 
