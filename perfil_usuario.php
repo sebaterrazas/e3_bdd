@@ -1,4 +1,6 @@
-<?php include('templates/header.html');   ?>
+<?php include('templates/header.html');   
+session_start();
+?>
 
 <h1><?php $_SESSION['username'] ?></h1>
 
