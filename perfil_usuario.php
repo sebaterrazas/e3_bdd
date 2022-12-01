@@ -2,8 +2,7 @@
 session_start();
 $username = $_SESSION['username'];
 $tipo = $_SESSION['tipo'];
-echo "<h1>Tu nombre de usuario: $username </h1>";
-echo "<h1>Qué tipo de usuario eres: $tipo </h1>";
+echo "<h1>Tu nombre de usuario: $username <br/> Qué tipo de usuario eres: $tipo </h1>";
 
 /* Dependiendo del tipo de usuario que realiz´o el login, se debe desplegar una p´agina distinta.
 Productora
