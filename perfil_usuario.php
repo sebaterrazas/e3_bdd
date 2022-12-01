@@ -47,6 +47,13 @@ die();
 
 ?>
 
+<div align="center" class = "flex-container">
+    <p>Estas en la pagina de productora, estos son tus eventos:</p>
+    <p>Eventos en espera de aprobacion:</p>
+    <p>Eventos aprobados por los artistas:</p>
+    <p>Eventos rechazados:</p>
+
+
 
 
 
