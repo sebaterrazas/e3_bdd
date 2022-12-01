@@ -24,6 +24,11 @@
         $result -> execute();
         $result -> fetchAll(); */
 
+        $query = "SELECT * FROM artistas;";
+        $result = $db2 -> prepare($query);
+        $result -> execute();
+        $artistas = $result -> fetchAll();
+
         $query = "INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ('$username'::varchar, '$password'::varchar, 'productora');";
         $result = $db2 -> prepare($query);
         $result -> execute();
