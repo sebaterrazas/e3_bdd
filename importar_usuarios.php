@@ -16,6 +16,7 @@
     }
     
     foreach ($productoras as $p) {
+        echo "<h5>$p[1]<h5>";
         $password = randomPassword();
         $username = strtolower(str_replace(" ", "_", $p[1]));
 
@@ -42,7 +43,7 @@
     $query = "INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ('usuario', 'contraseña', 'artista');";
     $result = $db2 -> prepare($query);
     $result -> execute();
-    header('Location: ' . 'usuarios.php', true, 303);
-    die();
+    /* header('Location: ' . 'usuarios.php', true, 303);
+    die(); */
 ?>
 <?php include('templates/footer.html');   ?>
