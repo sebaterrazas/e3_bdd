@@ -5,13 +5,13 @@
     $result = $db1 -> prepare($query);
     $result -> execute();
     $productoras = $result -> fetchAll();
-    echo $productoras[0];
+    echo $productoras[0][0];
 
     $query = "SELECT * FROM artistas;";
     $result = $db2 -> prepare($query);
     $result -> execute();
     $artistas = $result -> fetchAll();
-    echo $artistas[0];
+    echo $artistas[0][0];
 
     $ids = 0;
 
