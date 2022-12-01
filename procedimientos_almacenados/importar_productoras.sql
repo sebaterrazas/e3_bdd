@@ -1,5 +1,5 @@
-CREATE OR REPLACE FUNCTION importar_productora(id int, nombre varchar, contraseña varchar, id_par int, id_impar int)
-RETURNS void AS
+CREATE OR REPLACE FUNCTION importar_productora(nombre varchar, contraseña varchar)
+RETURNS BOOLEAN AS
 $$
 BEGIN
     IF nombre NOT IN (SELECT nombre_usuario from usuarios) THEN
