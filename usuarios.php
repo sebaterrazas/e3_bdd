@@ -16,7 +16,7 @@ h2 .white-text {
     $usuarios = $result -> fetchAll();
 ?>
 
-<h2 class="white-text">Usuarios(<?php echo count($usuarios);?>)</h2>
+<h2 class="white-text" color=white;>Usuarios(<?php echo count($usuarios);?>)</h2>
 <table>
 <tr>
     <th>ID</th>
