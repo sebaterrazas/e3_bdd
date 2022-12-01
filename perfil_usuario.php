@@ -41,6 +41,23 @@ if ($tipo == 'productora') {
     echo "<h4>Eventos aprobados por los artistas:</h4>";
     echo "<h4>Eventos rechazados:</h4>";
     echo "</div>";
+
+    $query = "SELECT * FROM eventos WHERE nombre_productora=$username;";
+    $result = $db2 -> prepare($query);
+    $result -> execute();
+    $eventos = $result -> fetchAll();
+
+    //Hacer esto mismo de abajo pero en html
+    echo "<div align='center' class = 'flex-container'>";
+    echo "<h4>Eventos programados:</h4>";
+    echo "<table>";
+    echo "<tr><th>Nombre</th><th>Fecha</th><th>Recinto</th><th>Artistas</th><th>Tour</th><th>Hospedaje</th><th>Traslado</th><th>Entradas</th></tr>";
+    foreach ($eventos as $e) {
+        echo "<tr> <td>$e[0]</td> <td>$e[1]</td> <td>$e[2]</td> <td>$e[3]</td> <td>$e[4]</td> <td>$e[5]</td> <td>$e[6]</td> <td>$e[7]</td> </tr>";
+    }
+    echo "</table>";
+    echo "</div>";
+    
 } else {
     echo "<p>Estas en la pagina de artista, estos son tus eventos programados:</p>";
 }
