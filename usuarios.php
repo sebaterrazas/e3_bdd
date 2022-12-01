@@ -13,8 +13,8 @@
     $usuarios = $result -> fetchAll();
 ?>
 
-<h2 class="white-text">Usuarios(<?php echo count($usuarios);?>)</h2>
-<table>
+<h2 class="white-text" align="center">Usuarios(<?php echo count($usuarios);?>)</h2>
+<table align="center">
 <tr>
     <th>ID</th>
     <th>Nombre</th>
