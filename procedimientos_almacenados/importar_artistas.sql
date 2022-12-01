@@ -3,7 +3,7 @@ RETURNS void AS
 $$
 BEGIN
     IF nombre NOT IN (SELECT nombre_usuario FROM usuarios) THEN
-        INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES (nombre::varchar, contraseña_usuario::varchar, 'artista');
+        INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES (nombre, contraseña_usuario, 'artista');
     END IF;
 END
 $$ language plpgsql
