@@ -5,13 +5,11 @@
     $result = $db1 -> prepare($query);
     $result -> execute();
     $productoras = $result -> fetchAll();
-    echo $productoras[0][0];
 
     $query = "SELECT * FROM artistas;";
     $result = $db2 -> prepare($query);
     $result -> execute();
     $artistas = $result -> fetchAll();
-    echo $artistas[0][0];
 
     $ids = 0;
 
@@ -22,12 +20,12 @@
     foreach ($productoras as $p) {
         $password = randomPassword();
         $username = strtolower(str_replace(" ", "_", $p[1]));
+        echo $p[1];
 
-        $query = "SELECT id FROM productoras WHERE $p[1] = nombre;";
+        /* $query = "SELECT id FROM productoras WHERE $p[1] = nombre;";
         $result = $db2 -> prepare($query);
         $result -> execute();
         $productora = $result -> fetchAll();
-        echo $prod;
         foreach ($productora as $prod) {
             $id_impar = $prod[0];
         }
@@ -35,7 +33,7 @@
         $query = "SELECT importar_productora($ids, $username, $password, $p[0], $id_impar);";
         $result = $db2 -> prepare($query);
         $result -> execute();
-        $result -> fetchAll();
+        $result -> fetchAll(); */
 
         $ids += 1;
 
