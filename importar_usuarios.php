@@ -19,7 +19,7 @@
         $password = randomPassword();
         $username = strtolower(str_replace(" ", "_", $p[1]));
 
-        $query = "SELECT importar_productora($username, $password);";
+        $query = "SELECT importar_productora('$username'::varchar, '$password'::varchar);";
         $result = $db2 -> prepare($query);
         $result -> execute();
         $result -> fetchAll();
@@ -29,13 +29,13 @@
         $password = randomPassword();
         $username = strtolower(str_replace(" ", "_", $a[1]));
 
-        $query = "SELECT importar_artista($username, $password);";
+        $query = "SELECT importar_artista('$username'::varchar, '$password'::varchar);";
         $result = $db2 -> prepare($query);
         $result -> execute();
         $result -> fetchAll();
     }
 
-    $query = "INSERT INTO usuarios VALUES ('usuario', 'contraseña', 'artista');";
+    $query = "INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ('usuario', 'contraseña', 'artista');";
     $result = $db2 -> prepare($query);
     $result -> execute();
     $result -> fetchAll();
