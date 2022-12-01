@@ -38,6 +38,9 @@
         $result -> execute();
         $result -> fetchAll(); */
 
+        echo $username;
+        echo $password;
+        echo "--------";
         $query = "INSERT INTO usuarios (nombre_usuario, contraseña, tipo) VALUES ($username, $password, 'artista');";
         $result = $db2 -> prepare($query);
         $result -> execute();
