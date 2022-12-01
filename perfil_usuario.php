@@ -37,28 +37,59 @@ ser aprobados, y que el artista los pueda aprobar o rechazar. */
 
 if ($tipo == 'productora') {
     // Hacer en html lo que se quiere hacer abajo con los divs
-    echo "<div align='center' class = 'flex-container'>";
-    echo "<h3>Estas en la pagina de productora, estos son tus eventos:</h3>";
-    echo "<h4>Eventos en espera de aprobacion:</h4>";
-    echo "<h4>Eventos aprobados por los artistas:</h4>";
-    echo "<h4>Eventos rechazados:</h4>";
-    echo "</div>";
-
-    $query = "SELECT * FROM eventos WHERE upper(nombre_productora) LIKE upper('%$username%');";
+    $query = "SELECT * FROM eventos WHERE upper(nombre_productora) LIKE upper('%$username%') ORDER BY fecha_evento ;";
     $result = $db2 -> prepare($query);
     $result -> execute();
     $eventos = $result -> fetchAll();
+    echo "<div align='center' class = 'flex-container'>";
+    echo "<h3>Estas en la pagina de productora, estos son tus eventos programados:</h3>";
 
     //Hacer esto mismo de abajo pero en html
-    echo "<div align='center' class = 'flex-container'>";
-    echo "<h4>Eventos programados:</h4>";
     echo "<table>";
-    echo "<tr><th>Nombre</th><th>Fecha</th><th>Recinto</th><th>Artista</th><th>Ciudad</th><th>País</th><th>Fecha</th><th>Productora</th></tr>";
+    echo "<tr><th>Id</th><th>Nombre</th><th>Recinto</th><th>Artista</th><th>Ciudad</th><th>País</th><th>Fecha</th><th>Productora</th></tr>";
     foreach ($eventos as $e) {
-        echo "<tr><td>$e[1]</td> <td>$e[2]</td> <td>$e[3]</td> <td>$e[4]</td> <td>$e[5]</td> <td>$e[6]</td> <td>$e[7]</td> </tr>";
+        echo "<tr><td>$e[0]</td> <td>$e[1]</td> <td>$e[2]</td> <td>$e[3]</td> <td>$e[4]</td> <td>$e[5]</td> <td>$e[6]</td> <td>$e[7]</td>  </tr>";
     }
     echo "</table>";
+
+
+    echo "<h4>Eventos en espera de aprobacion:</h4>";
+    //Hacer esto mismo de abajo pero en html
+    echo "<table>";
+    echo "<tr><th>Id</th><th>Nombre</th><th>Recinto</th><th>Artista</th><th>Ciudad</th><th>País</th><th>Fecha</th><th>Productora</th></tr>";
+    foreach ($eventos as $e) {
+        if ($e[8] == "En espera") {
+            echo "<tr><td>$e[0]</td> <td>$e[1]</td> <td>$e[2]</td> <td>$e[3]</td> <td>$e[4]</td> <td>$e[5]</td> <td>$e[6]</td> <td>$e[7]</td>  </tr>";
+        }
+    }
+    echo "</table>";
+
+    echo "<h4>Eventos aprobados por los artistas:</h4>";
+    echo "<table>";
+    echo "<tr><th>Id</th><th>Nombre</th><th>Recinto</th><th>Artista</th><th>Ciudad</th><th>País</th><th>Fecha</th><th>Productora</th></tr>";
+    foreach ($eventos as $e) {
+        if ($e[8] == "Aprobado"){
+            echo "<tr><td>$e[0]</td> <td>$e[1]</td> <td>$e[2]</td> <td>$e[3]</td> <td>$e[4]</td> <td>$e[5]</td> <td>$e[6]</td> <td>$e[7]</td>  </tr>";
+        }
+    }
+    echo "</table>";
+
+
+    echo "<h4>Eventos rechazados:</h4>";
+    echo "<table>";
+    echo "<tr><th>Id</th><th>Nombre</th><th>Recinto</th><th>Artista</th><th>Ciudad</th><th>País</th><th>Fecha</th><th>Productora</th></tr>";
+    foreach ($eventos as $e) {
+        if ($e[8] == "Rechazado"){
+            echo "<tr><td>$e[0]</td> <td>$e[1]</td> <td>$e[2]</td> <td>$e[3]</td> <td>$e[4]</td> <td>$e[5]</td> <td>$e[6]</td> <td>$e[7]</td>  </tr>";
+        }
+    }
+    echo "</table>";
+
     echo "</div>";
+
+    
+
+    
     
 } else {
     echo "<p>Estas en la pagina de artista, estos son tus eventos programados:</p>";
