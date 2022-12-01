@@ -2,6 +2,9 @@
 
 <style>
 <?php include 'mystyles.css'; ?>
+h2 .white-text {
+    color: white;
+  }
 </style>
 
 <?php
@@ -13,7 +16,7 @@
     $usuarios = $result -> fetchAll();
 ?>
 
-<h2>Usuarios(<?php echo count($usuarios);?>)</h2>
+<h2 class="white-text">Usuarios(<?php echo count($usuarios);?>)</h2>
 <table>
 <tr>
     <th>ID</th>
