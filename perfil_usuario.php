@@ -44,7 +44,7 @@ if ($tipo == 'productora') {
     echo "<h4>Eventos rechazados:</h4>";
     echo "</div>";
 
-    $query = "SELECT * FROM eventos WHERE nombre_productora=$username;";
+    $query = "SELECT * FROM eventos;";
     $result = $db2 -> prepare($query);
     $result -> execute();
     $eventos = $result -> fetchAll();
