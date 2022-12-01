@@ -5,11 +5,13 @@
     $result = $db1 -> prepare($query);
     $result -> execute();
     $productoras = $result -> fetchAll();
+    echo $productoras[0];
 
     $query = "SELECT * FROM artistas;";
     $result = $db2 -> prepare($query);
     $result -> execute();
     $artistas = $result -> fetchAll();
+    echo $artistas[0];
 
     $ids = 0;
 
@@ -25,9 +27,8 @@
         $result = $db2 -> prepare($query);
         $result -> execute();
         $productora = $result -> fetchAll();
-
+        echo $prod;
         foreach ($productora as $prod) {
-            echo $prod;
             $id_impar = $prod[0];
         }
 
