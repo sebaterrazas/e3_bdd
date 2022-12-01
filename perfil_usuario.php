@@ -35,10 +35,13 @@ ser aprobados, y que el artista los pueda aprobar o rechazar. */
 
 
 if ($tipo == 'productora') {
+    // Hacer en html lo que se quiere hacer abajo con los divs
+    echo "<div align='center' class = 'flex-container'>";
     echo "<p>Estas en la pagina de productora, estos son tus eventos:</p>";
     echo "<p>Eventos en espera de aprobacion:</p>";
     echo "<p>Eventos aprobados por los artistas:</p>";
     echo "<p>Eventos rechazados:</p>";
+    echo "</div>";
 } else {
     echo "<p>Estas en la pagina de artista, estos son tus eventos programados:</p>";
 }
@@ -46,13 +49,6 @@ die();
 
 
 ?>
-
-<div align="center" class = "flex-container">
-    <p>Estas en la pagina de productora, estos son tus eventos:</p>
-    <p>Eventos en espera de aprobacion:</p>
-    <p>Eventos aprobados por los artistas:</p>
-    <p>Eventos rechazados:</p>
-
 
 
 
