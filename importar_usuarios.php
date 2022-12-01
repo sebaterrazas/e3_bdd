@@ -12,6 +12,12 @@
     $artistas = $result -> fetchAll();
 
     $ids = 0;
+
+    function randomPassword() {
+        return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 10);
+    }
+
+    echo randomPassword();
     
     foreach ($productoras as $p) {
         $password = randomPassword();
