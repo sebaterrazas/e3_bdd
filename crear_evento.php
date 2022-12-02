@@ -14,7 +14,7 @@
     $id = $result -> fetchAll();
     $id = $id[0][0] + 1;
 
-    $query = "INSERT INTO eventos (id_evento, nombre_evento, nombre_recinto, nombre_artista, ciudad_recinto, pais_recinto, fecha_evento, nombre_productora) VALUES ($id, '$evento'::varchar, '$recinto'::varchar, '$ciudad'::varchar, '$pais'::varchar, $fecha, '$productor'::varchar);";
+    $query = "INSERT INTO eventos (id_evento, nombre_evento, nombre_recinto, nombre_artista, ciudad_recinto, pais_recinto, fecha_evento, nombre_productora, estado) VALUES ($id, '$evento'::varchar, '$recinto'::varchar, '$ciudad'::varchar, '$pais'::varchar, $fecha, '$productor'::varchar, 'En espera');";
     $result = $db2 -> prepare($query);
     $result -> execute();
     header("Location: perfil_usuario.php");
