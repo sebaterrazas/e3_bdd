@@ -34,10 +34,10 @@ Entradas de cortes´ıa disponibles por categor´ıa.
 Adem´as deben poder ver el listado de eventos que crearon las productoras y que necesitan
 ser aprobados, y que el artista los pueda aprobar o rechazar. */
 
-
+$nombre = str_replace("_", " ", $username);
 if ($tipo == 'productora') {
     // Hacer en html lo que se quiere hacer abajo con los divs
-    $query = "SELECT * FROM eventos WHERE upper(nombre_productora) LIKE upper('%$username%') ORDER BY fecha_evento ;";
+    $query = "SELECT * FROM eventos WHERE upper(nombre_productora)=upper('$nombre') ORDER BY fecha_evento ;";
     $result = $db2 -> prepare($query);
     $result -> execute();
     $eventos = $result -> fetchAll();
@@ -93,7 +93,7 @@ if ($tipo == 'productora') {
     
 } else {
     echo "<p>Estas en la pagina de artista, estos son tus eventos programados:</p>";
-    $query = "SELECT * FROM eventos WHERE upper(nombre_artista) LIKE upper('%$username%');";
+    $query = "SELECT * FROM eventos WHERE upper(nombre_artista)=upper('$nombre');";
     $result = $db2 -> prepare($query);
     $result -> execute();
     $eventos = $result -> fetchAll();
@@ -108,9 +108,6 @@ if ($tipo == 'productora') {
     echo "</table>";
     echo "</div>";
 }
-die();
-
-
 ?>
 
 
