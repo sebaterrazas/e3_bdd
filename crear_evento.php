@@ -1,0 +1,22 @@
+<?php
+    require ("config/conexion.php");
+
+    $evento = $_POST['event_name'];
+    $recinto = $_POST['place_name'];
+    $ciudad = $_POST['city'];
+    $pais = $_POST['country'];
+    $fecha = $_POST['date'];
+    $productor = $_POST['producer'];
+
+    $query = "SELECT MAX(id_evento) FROM eventos;";
+    $result = $db2 -> prepare($query);
+    $result -> execute();
+    $id = $result -> fetchAll();
+    $id = $id[0][0] + 1;
+
+    $query = "INSERT INTO eventos (id_evento, nombre_evento, nombre_recinto, nombre_artista, ciudad_recinto, pais_recinto, fecha_evento, nombre_productora) VALUES ($id, '$evento'::varchar, '$recinto'::varchar, '$ciudad'::varchar, '$pais'::varchar, $fecha, '$productor'::varchar);";
+    $result = $db2 -> prepare($query);
+    $result -> execute();
+    header("Location: perfil_usuario.php");
+    die();
+?>

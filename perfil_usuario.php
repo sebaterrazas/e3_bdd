@@ -42,13 +42,13 @@ if ($tipo == 'productora') {
     $result -> execute();
     $eventos = $result -> fetchAll();
     echo "<div align='center' class = 'flex-container'>";
-    echo "<h3>Estas en la pagina de productora, estos son tus eventos programados:</h3>";
+    echo "<h3>Estás en la página de productora, estos son tus eventos programados:</h3>";
 
     //Hacer esto mismo de abajo pero en html
     echo "<table>";
-    echo "<tr><th>Id</th><th>Nombre</th><th>Recinto</th><th>Artista</th><th>Ciudad</th><th>País</th><th>Fecha</th><th>Productora</th></tr>";
+    echo "<tr><th>Id</th><th>Nombre</th><th>Recinto</th><th>Artista</th><th>Ciudad</th><th>País</th><th>Fecha</th></tr>";
     foreach ($eventos as $e) {
-        echo "<tr><td>$e[0]</td> <td>$e[1]</td> <td>$e[2]</td> <td>$e[3]</td> <td>$e[4]</td> <td>$e[5]</td> <td>$e[6]</td> <td>$e[7]</td>  </tr>";
+        echo "<tr><td>$e[0]</td> <td>$e[1]</td> <td>$e[2]</td> <td>$e[3]</td> <td>$e[4]</td> <td>$e[5]</td> <td>$e[6]</td> </tr>";
     }
     echo "</table>";
 
@@ -56,20 +56,20 @@ if ($tipo == 'productora') {
     echo "<h4>Eventos en espera de aprobacion:</h4>";
     //Hacer esto mismo de abajo pero en html
     echo "<table>";
-    echo "<tr><th>Id</th><th>Nombre</th><th>Recinto</th><th>Artista</th><th>Ciudad</th><th>País</th><th>Fecha</th><th>Productora</th></tr>";
+    echo "<tr><th>Id</th><th>Nombre</th><th>Recinto</th><th>Artista</th><th>Ciudad</th><th>País</th><th>Fecha</th></tr>";
     foreach ($eventos as $e) {
         if ($e[8] == "En espera") {
-            echo "<tr><td>$e[0]</td> <td>$e[1]</td> <td>$e[2]</td> <td>$e[3]</td> <td>$e[4]</td> <td>$e[5]</td> <td>$e[6]</td> <td>$e[7]</td>  </tr>";
+            echo "<tr><td>$e[0]</td> <td>$e[1]</td> <td>$e[2]</td> <td>$e[3]</td> <td>$e[4]</td> <td>$e[5]</td> <td>$e[6]</td> </tr>";
         }
     }
     echo "</table>";
 
     echo "<h4>Eventos aprobados por los artistas:</h4>";
     echo "<table>";
-    echo "<tr><th>Id</th><th>Nombre</th><th>Recinto</th><th>Artista</th><th>Ciudad</th><th>País</th><th>Fecha</th><th>Productora</th></tr>";
+    echo "<tr><th>Id</th><th>Nombre</th><th>Recinto</th><th>Artista</th><th>Ciudad</th><th>País</th><th>Fecha</th></tr>";
     foreach ($eventos as $e) {
         if ($e[8] == "Aprobado"){
-            echo "<tr><td>$e[0]</td> <td>$e[1]</td> <td>$e[2]</td> <td>$e[3]</td> <td>$e[4]</td> <td>$e[5]</td> <td>$e[6]</td> <td>$e[7]</td>  </tr>";
+            echo "<tr><td>$e[0]</td> <td>$e[1]</td> <td>$e[2]</td> <td>$e[3]</td> <td>$e[4]</td> <td>$e[5]</td> <td>$e[6]</td> </tr>";
         }
     }
     echo "</table>";
@@ -77,17 +77,17 @@ if ($tipo == 'productora') {
 
     echo "<h4>Eventos rechazados:</h4>";
     echo "<table>";
-    echo "<tr><th>Id</th><th>Nombre</th><th>Recinto</th><th>Artista</th><th>Ciudad</th><th>País</th><th>Fecha</th><th>Productora</th></tr>";
+    echo "<tr><th>Id</th><th>Nombre</th><th>Recinto</th><th>Artista</th><th>Ciudad</th><th>País</th><th>Fecha</th></tr>";
     foreach ($eventos as $e) {
         if ($e[8] == "Rechazado"){
-            echo "<tr><td>$e[0]</td> <td>$e[1]</td> <td>$e[2]</td> <td>$e[3]</td> <td>$e[4]</td> <td>$e[5]</td> <td>$e[6]</td> <td>$e[7]</td>  </tr>";
+            echo "<tr><td>$e[0]</td> <td>$e[1]</td> <td>$e[2]</td> <td>$e[3]</td> <td>$e[4]</td> <td>$e[5]</td> <td>$e[6]</td> </tr>";
         }
     }
     echo "</table>";
-    echo "</div>";
+    // echo "</div>";
     
 } else {
-    echo "<p>Estas en la pagina de artista, estos son tus eventos programados:</p>";
+    echo "<p>Estás en la página de artista, estos son tus eventos programados:</p>";
     $query = "SELECT * FROM eventos WHERE upper(nombre_artista)=upper('$nombre');";
     $result = $db2 -> prepare($query);
     $result -> execute();
@@ -102,8 +102,37 @@ if ($tipo == 'productora') {
     }
     echo "</table>";
     echo "</div>";
+    die();
 }
 ?>
+
+    <?php
+    #Primero obtenemos todos los tipos de pokemones
+    require("config/conexion.php");
+    $result = $db2 -> prepare("SELECT DISTINCT nombre_artista FROM artistas;");
+    $result -> execute();
+    $dataCollected = $result -> fetchAll();
+    ?>
+
+    <div class = "flex-item">
+        <h1>Crear Evento</h1>
+        <form action="crear_evento.php" method="post">
+            <input type="text" name="event_name" placeholder="Nombre Evento">
+            <input type="text" name="place_name" placeholder="Recinto">
+            <input type="text" name="city" placeholder="Ciudad">
+            <input type="text" name="country" placeholder="País">
+            <input type="date" name="date" placeholder="Fecha">
+            <input type="hidden" name="producer" placeholder="<?php$eventos[0][7]?>">
+            <?php
+            #Para cada tipo agregamos el tag <option value=value_of_param> visible_value </option>
+            foreach ($dataCollected as $d) {
+                echo "<option value='$d[0]'>$d[0]</option>";
+            }
+            ?>
+            <input type="submit" value="Crear">
+        </form>
+    </div>
+</div>
 
 
 
