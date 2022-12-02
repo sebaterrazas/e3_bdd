@@ -41,6 +41,7 @@ if ($tipo == 'productora') {
     $result = $db2 -> prepare($query);
     $result -> execute();
     $eventos = $result -> fetchAll();
+    $_SESSION['producer'] = $eventos[0][7];
     echo "<div align='center' class = 'flex-container'>";
     echo "<h3>Estás en la página de productora, estos son tus eventos programados:</h3>";
 
@@ -122,7 +123,6 @@ if ($tipo == 'productora') {
             <input type="text" name="city" placeholder="Ciudad">
             <input type="text" name="country" placeholder="País">
             <input type="date" name="date" placeholder="Fecha">
-            <input type="hidden" name="producer" placeholder="<?php$eventos[0][7]?>">
             <select name="nombre_artista">
             <?php
             foreach ($dataCollected as $d) {

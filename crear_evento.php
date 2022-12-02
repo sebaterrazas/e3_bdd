@@ -6,7 +6,7 @@
     $ciudad = $_POST['city'];
     $pais = $_POST['country'];
     $fecha = $_POST['date'];
-    $productor = $_POST['producer'];
+    $productor = $_SESSION['producer'];
 
     echo $evento;
     echo "---";
@@ -19,7 +19,6 @@
     echo $fecha;
     echo "---";
     echo $productor;
-    echo "---";
 
     $query = "SELECT MAX(id_evento) FROM eventos;";
     $result = $db2 -> prepare($query);
