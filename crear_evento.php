@@ -1,5 +1,6 @@
 <?php
     require ("config/conexion.php");
+    session_start();
 
     $evento = $_POST['event_name'];
     $recinto = $_POST['place_name'];
