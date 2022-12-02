@@ -84,12 +84,7 @@ if ($tipo == 'productora') {
         }
     }
     echo "</table>";
-
     echo "</div>";
-
-    
-
-    
     
 } else {
     echo "<p>Estas en la pagina de artista, estos son tus eventos programados:</p>";
@@ -101,9 +96,9 @@ if ($tipo == 'productora') {
     echo "<div align='center' class = 'flex-container'>";
     echo "<h4>Eventos programados:</h4>";
     echo "<table>";
-    echo "<tr><th>Nombre</th><th>Fecha</th><th>Recinto</th><th>Artista</th><th>Ciudad</th><th>País</th><th>Fecha</th><th>Productora</th></tr>";
+    echo "<tr><th>Nombre</th><th>Fecha</th><th>Recinto</th><th>Ciudad</th><th>País</th><th>Fecha</th><th>Productora</th></tr>";
     foreach ($eventos as $e) {
-        echo "<tr><td>$e[1]</td> <td>$e[2]</td> <td>$e[3]</td> <td>$e[4]</td> <td>$e[5]</td> <td>$e[6]</td> <td>$e[7]</td> </tr>";
+        echo "<tr><td>$e[1]</td> <td>$e[6]</td> <td>$e[2]</td> <td>$e[4]</td> <td>$e[5]</td> <td>$e[6]</td> <td>$e[7]</td> </tr>";
     }
     echo "</table>";
     echo "</div>";
