@@ -123,12 +123,13 @@ if ($tipo == 'productora') {
             <input type="text" name="country" placeholder="País">
             <input type="date" name="date" placeholder="Fecha">
             <input type="hidden" name="producer" placeholder="<?php$eventos[0][7]?>">
+            <select name="nombre_artista">
             <?php
-            #Para cada tipo agregamos el tag <option value=value_of_param> visible_value </option>
             foreach ($dataCollected as $d) {
                 echo "<option value='$d[0]'>$d[0]</option>";
             }
             ?>
+            </select>
             <input type="submit" value="Crear">
         </form>
     </div>
