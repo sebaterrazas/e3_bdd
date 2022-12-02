@@ -1,1 +1,3 @@
 # e3_bdd
+
+Al entrar a `index.php`, hay una vista en donde se puede importar los usuarios (y borrarlos para comprobar que se agregan de forma correcta). Además, también se puede logear en esta parte, ingresando el nombre de usuario y clave correspondiente. Las claves son de largo 10 y son caracteres aleatorios alfanumércios. La constraseña de cada usuario aparece en `usuarios.php`, el cual se puede acceder apretando el hipervínculo de abajo en `index.php`.
