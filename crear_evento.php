@@ -1,6 +1,6 @@
 <?php
     require ("config/conexion.php");
-    session_start();
+    
 
     $evento = $_POST['event_name'];
     $recinto = $_POST['place_name'];
@@ -26,6 +26,8 @@
     $result -> execute();
     $id = $result -> fetchAll();
     $id = $id[0][0] + 1;
+    echo "---";
+    echo $id;
 
     $query = "INSERT INTO eventos (id_evento, nombre_evento, nombre_recinto, nombre_artista, ciudad_recinto, pais_recinto, fecha_evento, nombre_productora, estado) VALUES ($id, '$evento'::varchar, '$recinto'::varchar, '$ciudad'::varchar, '$pais'::varchar, '$fecha'::varchar, '$productor'::varchar, 'En espera');";
     $result = $db2 -> prepare($query);
